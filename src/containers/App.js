@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import LatLong from '../components/latLong/latLong';
 import { Grid } from 'react-material-responsive-grid';
-//import ReactPullToRefresh from 'react-pull-to-refresh';
-import RefreshIndicator from '../components/refreshIndicator/refreshIndicator';
 import CitiesContainer from '../components/citiesContainer/citiesContainer';
 import OpenWeatherAPI from '../axios/openWeather/openWeatherAPI';
 import AppBar from 'material-ui/AppBar';
