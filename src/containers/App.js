@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LatLong from '../components/latLong/latLong';
 import { Grid } from 'react-material-responsive-grid';
-import ReactPullToRefresh from 'react-pull-to-refresh';
+//import ReactPullToRefresh from 'react-pull-to-refresh';
 import RefreshIndicator from '../components/refreshIndicator/refreshIndicator';
 import CitiesContainer from '../components/citiesContainer/citiesContainer';
 import OpenWeatherAPI from '../axios/openWeather/openWeatherAPI';
@@ -75,22 +75,7 @@ class App extends Component {
 
     render(){
         const onPass = (Lat,Long) => this.onPass(Lat,Long);
-        const handleRefresh = (resolve,reject) => this.handleRefresh(resolve,reject);
-        const items = [];
-
-        let ReacPullStyle = {
-            textAlign: 'center'
-        };
-
-        if (this.state.refreshing === true){
-            ReacPullStyle = {
-                paddingTop:'50px'
-            };
-        } else {
-            ReacPullStyle = {
-                paddingTop:'50px'
-            };
-        }
+        //const handleRefresh = (resolve,reject) => this.handleRefresh(resolve,reject);
 
         var googlePlacesAutoComplete = <ReactPlacesAutoComplete onPass={onPass}/>
         var logoImage = <span style={{marginLeft:'35px'}}><img src="/assets/doodloodoo_logo.png" alt="/assets/doodloodoo_logo.png" style={logoStyle}/>doodloodoo</span>
@@ -103,17 +88,10 @@ class App extends Component {
                     iconElementRight={googlePlacesAutoComplete}
                 />
                 <LatLong onPass = {this.onPass} />
-                <ReactPullToRefresh
-                    onRefresh={handleRefresh}
-                    className="your-own-class-if-you-want"
-                    style={ReacPullStyle}
-                >
-                    <RefreshIndicator isRefreshing={this.state.refreshing}/>
-                    <Grid>
-                        {/* <DisplayTemp Wind = {this.state.Wind} Icon = {this.state.Icon} Clouds = {this.state.Clouds} Temp = {this.state.Temp} Name = {this.state.Name} Lat = {this.state.Lat} Long = {this.state.Long}/> */}
-                        <CitiesContainer cities={this.state.cities} />
-                    </Grid>
-                </ReactPullToRefresh>
+                <Grid>
+                    {/* <DisplayTemp Wind = {this.state.Wind} Icon = {this.state.Icon} Clouds = {this.state.Clouds} Temp = {this.state.Temp} Name = {this.state.Name} Lat = {this.state.Lat} Long = {this.state.Long}/> */}
+                    <CitiesContainer cities={this.state.cities} />
+                </Grid>
             </div>
         );
     }
